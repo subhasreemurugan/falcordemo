@@ -6,6 +6,7 @@
 
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="css/mdb.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css">
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <link href="css/mystyle.css" rel="stylesheet" type="text/css" />
     <!--<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">-->
@@ -23,20 +24,24 @@
     <div class="card-group">
         <script id="productTemplate" type="text/x-jQuery-tmpl">
 
-            <div class="card prodwrapper col-md-3" id="${skuid}">
+            <div class="card prodwrapper col-md-3" id="${skuid}" data-sku="${skuid}">
                 <img src="${picture}" alt="Card image cap">
                 <div class="card-block">
-                    <h4 class="card-title">${title}</h4>
+                    <h4 class="card-title">${title}
+                    <span class="myrate"><p class="updateRate">${rate}</p>
+                     <i class="fa fa-star" aria-hidden="true"></i>   
+                    </span>
+                    </h4>
                     <p class="card-text">${description}</p>
-                    <span class="rate"> rate: ${rate}   
-             </span>
+                    <p>rate:<span class="rate">  ${rate}  </span>
+                    </p>
+                    
                     <span class="price"> price: ${price}    
              </span>
                     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                 </div>
 
                 <div class="stars">
-
                     <fieldset class="rating">
                         <input type="radio" id="field1_star5" name="rating1" value="5" />
                         <label class="full" for="field1_star5"></label>
@@ -73,14 +78,18 @@
         </script>
         <script id="offerTemplate" type="text/x-jQuery-tmpl">
 
-            <div class="card prodwrapper col-md-3" id="${skuid}">
+            <div class="card prodwrapper col-md-3" id="${skuid}" data-sku="${skuid}" >
                 <img src="img/offer.png" class="myoffers">
                 <img src="${picture}" alt="Card image cap">
                 <div class="card-block">
-                    <h4 class="card-title">${title}</h4>
+                    <h4 class="card-title">${title}
+                    <span class="myrate"><p class="updateRate">${rate}</p>
+                     <i class="fa fa-star" aria-hidden="true"></i>   
+                    </span>
+                    </h4>
                     <p class="card-text">${description}</p>
-                    <span class="rate"> rate: ${rate}  
-             </span>
+                     <p>rate:<span class="rate">  ${rate}  </span>
+                    </p>
                     <span class="price"> price: ${price}   
              </span>
                     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
