@@ -55,13 +55,10 @@ $(window).load(function() {
         }
     });
     var allProducts, offers, display, myprice, rateid,rateUpdated;
-
-
     model
         .get('productList[0..1].products[0..2]["title", "price","picture","skuid","rate","description"]')
         .then(function(json) {
             console.log(JSON.stringify(json, null, 4));
-
             allProducts = json.json.productList[0];
             offers = json.json.productList[1];
             createPage(allProducts, offers);
@@ -69,19 +66,10 @@ $(window).load(function() {
                 var skuid = $(this).parents('.prodwrapper').attr('id');
                 //alert(skuid);
                 rateid = $(this).attr('for');
-
-                $(this).parent().find("label").css({
-                    "background-color": "#D8D8D8"
-                });
-                $(this).css({
-                    "background-color": "#7ED321"
-                });
-                $(this).nextAll().css({
-                    "background-color": "#7ED321"
-                });
-                // var checkedValue = $(this).parent().find('input[name=rating1]:checked').val();
-                // $('input[name=rating1]:radio:checked').val()
-                // alert($('input[name=rating1]:radio:checked').val());
+                $(this).parent().find("label").addClass('unselected');
+                $(this).addClass('selected');
+                $(this).nextAll().addClass('selected');
+               
                 model
                     .setValue('productList[0].products[0].rate', $('#' + rateid).val())
                     .then(function(value) {
@@ -90,14 +78,9 @@ $(window).load(function() {
                             .then(function(json) {
                                 console.log(JSON.stringify(json, null, 4));
                                 rateUpdated=json.json.productList[0].products[0].rate;
-
                                 $('[data-sku="' + skuid + '"]').find('.rate').html(rateUpdated);
                                  $('[data-sku="' + skuid + '"]').find('.updateRate').text(rateUpdated);
-                                // $('#' + skuid).find("label").css({
-                                //     "background-color": "#D8D8D8"
-                                // });
-                                // $('.contentwrapper').find('.rate').html(json.json.productList[1].products[0].rate);
-
+                                
                             });
 
                     });
