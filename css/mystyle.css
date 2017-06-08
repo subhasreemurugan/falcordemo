@@ -6,12 +6,12 @@ body{
   margin: 0 auto;
 }
 .container{
-  padding: 20px;
+  padding: 10px;
 }
 .prodwrapper{
   float:left;
   padding:10px;
-  width:26%;
+  height: 612px;
 }
 .contentwrapper{
   border: 1px solid black;
@@ -20,6 +20,22 @@ body{
 img.myoffers {
     position: absolute;
     width: 74px;
+}
+.myrate{
+  position: absolute;
+    right: 5px;
+    display: inline-flex;
+
+}
+.card-title{
+  position: relative;
+  text-transform: capitalize;
+    font-size: 32px;
+
+
+}
+.fa.fa-star{
+  color: #7ED321;
 }
 /*.allprods{
   width:60%;

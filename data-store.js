@@ -54,7 +54,7 @@ $(window).load(function() {
             ]
         }
     });
-    var allProducts, offers, display, myprice, rateid;
+    var allProducts, offers, display, myprice, rateid,rateUpdated;
 
 
     model
@@ -67,7 +67,7 @@ $(window).load(function() {
             createPage(allProducts, offers);
             $("label").click(function() {
                 var skuid = $(this).parents('.prodwrapper').attr('id');
-                alert(skuid);
+                //alert(skuid);
                 rateid = $(this).attr('for');
 
                 $(this).parent().find("label").css({
@@ -89,10 +89,12 @@ $(window).load(function() {
                             .get('productList[0..1].products[0..2]["skuid","rate"]')
                             .then(function(json) {
                                 console.log(JSON.stringify(json, null, 4));
-                                $('#' + skuid).find('.rate').html(json.json.productList[0].products[0].rate);
-                                $('#' + skuid).find("label").css({
-                                    "background-color": "#D8D8D8"
-                                });
+                                rateUpdated=json.json.productList[0].products[0].rate;
+                                $('#' + skuid).find('.rate').html(rateUpdated);
+                                 $('#' + skuid).find('.updateRate').text(rateUpdated);
+                                // $('#' + skuid).find("label").css({
+                                //     "background-color": "#D8D8D8"
+                                // });
                                 // $('.contentwrapper').find('.rate').html(json.json.productList[1].products[0].rate);
 
                             });
