@@ -3,16 +3,16 @@ $(window).load(function() {
 var model = new falcor.Model({
   cache: {
     titlesById: {
-      5212:{ title: "cool start", price: 4.00, picture: "img/image3.jpg" ,skuid:"113",rate:"3"},
+      5212:{ title: "cool start", price: 4.00, picture: "img/image3.png" ,skuid:"113",rate:"3"},
     },
     productList: [
       {
         name: "All products",
         products: [
             { $type: "ref", value: ["titlesById", 5212] },
-            { title: " 4 Unleashed", price: 37.79, picture: "img/image1.jpg" ,skuid:"111",rate:"2"},
-            { title: " watch Unleashed", price: 44.99, picture: "img/image2.jpg" ,skuid:"112",rate:"4" },
-            { title: " Unleashed iPhone", price: 44.99, picture: "img/image4.jpg" ,skuid:"114",rate:"1" },
+            { title: " 4 Unleashed", price: 37.79, picture: "img/image1.png" ,skuid:"111",rate:"2"},
+            { title: " watch Unleashed", price: 44.99, picture: "img/image2.png" ,skuid:"112",rate:"4" },
+            { title: " Unleashed iPhone", price: 44.99, picture: "img/image4.png" ,skuid:"114",rate:"1" },
         ]
       },
       {
