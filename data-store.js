@@ -90,8 +90,9 @@ $(window).load(function() {
                             .then(function(json) {
                                 console.log(JSON.stringify(json, null, 4));
                                 rateUpdated=json.json.productList[0].products[0].rate;
-                                $('#' + skuid).find('.rate').html(rateUpdated);
-                                 $('#' + skuid).find('.updateRate').text(rateUpdated);
+
+                                $('[data-sku="' + skuid + '"]').find('.rate').html(rateUpdated);
+                                 $('[data-sku="' + skuid + '"]').find('.updateRate').text(rateUpdated);
                                 // $('#' + skuid).find("label").css({
                                 //     "background-color": "#D8D8D8"
                                 // });
