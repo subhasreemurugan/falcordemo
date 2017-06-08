@@ -5,7 +5,7 @@ $(window).load(function() {
             titlesById: {
                 5212: {
                     title: "machop",
-                    price: 40.00,
+                    price: 140.00,
                     picture: "img/image3.jpg",
                     skuid: "113",
                     rate: "3",
@@ -14,10 +14,20 @@ $(window).load(function() {
             },
             productList: [{
                     name: "All products",
-                    products: [{
-                            $type: "ref",
-                            value: ["titlesById", 5212]
-                        },
+                    products: [
+                     // {$type: "ref",value: ["titlesById", 5212]},
+                {
+                  pid:5212,
+                    title: "machop",
+                    price: 100.00,
+                    picture: "img/image3.jpg",
+                    skuid: "113",
+                    rate: "3",
+                    description: "MACHOP’s muscles are special - they never get sore no matter how much they are used in exercise. This POKéMON has sufficient power to hurl a hundred adult humans."
+                },
+
+
+
                         {
                             title: " pikachu",
                             price: 37.79,
@@ -46,10 +56,20 @@ $(window).load(function() {
                 },
                 {
                     name: "Offers",
-                    products: [{
-                        $type: "ref",
-                        value: ["titlesById", 5212]
-                    }]
+                    products: [
+                   //   {  $type: "ref", value: ["titlesById", 5212]}
+                    
+                {
+                  pid:5212,
+                    title: "machop",
+                    price: 40.00,
+                    picture: "img/image3.jpg",
+                    skuid: "113",
+                    rate: "3",
+                    description: "xMACHOP’s muscles are special - they never get sore no matter how much they are used in exercise. This POKéMON has sufficient power to hurl a hundred adult humans."
+                },
+
+                    ]
                 }
             ]
         }
