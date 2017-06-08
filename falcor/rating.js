@@ -22,12 +22,7 @@ var model = new falcor.Model({
     ]
   }
 });
-var myrate
-$(".rate").keyup(function(){
-            alert($(this).val());
-            myrate=$(this).val();
 
-          });
 model
   .setValue('genreList[0].titles[0].rating',4)
   .then(function(value){
@@ -37,4 +32,5 @@ model
         console.log(JSON.stringify(json, null, 4));
         document.getElementById('output').innerHTML = JSON.stringify(json, null, 4);
       });
+     
   });

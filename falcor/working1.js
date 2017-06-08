@@ -1,31 +1,39 @@
 var $ref = falcor.Model.ref;
-var model = new falcor.Model({
-  cache: {
-    messagesById: {
-      0: {
+var model = {
+    mainarray:[
+    {
+      name:"allprods",
+    prod: [
+       {
         name: "Fonzie",
-        message: "AAAY!"
+        price: "25!"
       },
-      1: {
-        name: "Lumineers",
-        message: "Ho!, Hey!"
-      }
-    },
-    greeting: [
       {
-        name: "Friendly",
-        message: "Hi"
-      },
-      $ref("messagesById[0]"),
-      $ref("messagesById[1]"),
-      $ref("messagesById[0]"),
-      $ref("messagesById[1]"),
+        name: "Lumineers",
+        price: "35"
+      }
     ]
-  }
-});
+  },
+    {
+      name:"offers",
+    prod: [
+       {
+        name: "Fonzie",
+        price: "25"
+      },
+     {
+        name: "Lums",
+        price: "56"
+      }
+    ]
+  }]
+  };
+console.log('model'+model.mainarray[0].prod[0].name)
+$('.products').
+
 
 model.
-  get('greeting[0..9].message', 'greeting[0..9].name').
+  get('', 'greeting[0..9].name').
   then(function(response){
     var greeting = response.json.greeting;
     var messages = Object.keys(greeting).
