@@ -5,7 +5,7 @@ $(window).load(function() {
             titlesById: {
                 5212: {
                     title: "machop",
-                    price: 140.00,
+                    price: 40.00,
                     picture: "img/image3.jpg",
                     skuid: "113",
                     rate: "3",
@@ -14,20 +14,17 @@ $(window).load(function() {
             },
             productList: [{
                     name: "All products",
-                    products: [
-                     // {$type: "ref",value: ["titlesById", 5212]},
-                {
-                  pid:5212,
-                    title: "machop",
-                    price: 100.00,
+                    products: [{
+                          // $type: "ref",
+                          // value: ["titlesById", 5212]
+              title: "machop",
+                    price: 40.00,
                     picture: "img/image3.jpg",
                     skuid: "113",
                     rate: "3",
                     description: "MACHOP’s muscles are special - they never get sore no matter how much they are used in exercise. This POKéMON has sufficient power to hurl a hundred adult humans."
-                },
-
-
-
+                
+                        },
                         {
                             title: " pikachu",
                             price: 37.79,
@@ -56,25 +53,22 @@ $(window).load(function() {
                 },
                 {
                     name: "Offers",
-                    products: [
-                   //   {  $type: "ref", value: ["titlesById", 5212]}
-                    
-                {
-                  pid:5212,
-                    title: "machop",
+                    products: [{
+                      //  $type: "ref",
+                        //value: ["titlesById", 5212]
+                        title: "machop",
                     price: 40.00,
                     picture: "img/image3.jpg",
                     skuid: "113",
                     rate: "3",
-                    description: "xMACHOP’s muscles are special - they never get sore no matter how much they are used in exercise. This POKéMON has sufficient power to hurl a hundred adult humans."
-                },
-
-                    ]
+                    description: "MACHOP’s muscles are special - they never get sore no matter how much they are used in exercise. This POKéMON has sufficient power to hurl a hundred adult humans."
+                
+                    }]
                 }
             ]
         }
     });
-    var allProducts, offers, display, myprice, rateid,rateUpdated;
+    var allProducts, offers, display, myprice, rateid,prodrateUpdated,offerrateUpdated;
     model
         .get('productList[0..1].products[0..2]["title", "price","picture","skuid","rate","description"]')
         .then(function(json) {
@@ -91,15 +85,23 @@ $(window).load(function() {
                 $(this).nextAll().addClass('selected');
                
                 model
-                    .setValue('productList[0].products[0].rate', $('#' + rateid).val())
+                    .setValue('productList[1].products[0].rate', $('#' + rateid).val())
                     .then(function(value) {
                         model
                             .get('productList[0..1].products[0..2]["skuid","rate"]')
                             .then(function(json) {
+                              alert(JSON.stringify(json, null, 4));
                                 console.log(JSON.stringify(json, null, 4));
-                                rateUpdated=json.json.productList[0].products[0].rate;
-                                $('[data-sku="' + skuid + '"]').find('.rate').html(rateUpdated);
-                                 $('[data-sku="' + skuid + '"]').find('.updateRate').text(rateUpdated);
+                                prodrateUpdated=json.json.productList[0].products[0].rate;
+                                offerrateUpdated=json.json.productList[1].products[0].rate;
+                                //$('[data-sku="' + skuid + '"]').find('.rate').html(rateUpdated);
+                                // $('[data-sku="' + skuid + '"]').find('.updateRate').text(rateUpdated);
+                                // updating offers
+                                    $('.offerwrap').find('.rate').html(offerrateUpdated);
+                                    $('.offerwrap').find('.updateRate').text(offerrateUpdated);
+                                
+                                $('.prodwrap[data-sku="' + skuid + '"]').find('.rate').html(prodrateUpdated);
+                                $('.prodwrap[data-sku="' + skuid + '"]').find('.updateRate').text(prodrateUpdated);
                                 
                             });
 
