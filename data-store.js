@@ -24,7 +24,7 @@ $(window).load(function() {
                             picture: "img/image1.jpg",
                             skuid: "111",
                             rate: "2",
-                            description: "Whenever PIKACHU comes across something new, it blasts it with a jolt of electricity. If you come across a blackened berry, it’s evidence that this POKéMON mistook the intensity of its charge."
+                            description: "Whenever PIKACHU comes , it blasts it with a jolt of electricity. If you come across a blackened berry, it’s evidence that this POKéMON mistook the intensity of its charge."
                         },
                         {
                             title: " Haunter",
